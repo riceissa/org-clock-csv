@@ -63,7 +63,7 @@
   "Export `org-mode' clock entries to CSV format."
   :group 'external)
 
-(defcustom org-clock-csv-header "task,parents,category,start,end,effort,ishabit,tags"
+(defcustom org-clock-csv-header "task,FORMULA,parents,category,start,end,effort,ishabit,tags"
   "Header for the CSV output.
 
 Be sure to keep this in sync with changes to
@@ -88,6 +88,7 @@ See `org-clock-csv-default-row-fmt' for an example."
   "Default row formatting function."
   (mapconcat #'identity
              (list (org-clock-csv--escape (plist-get plist ':task))
+                   (org-clock-csv--escape (org-clock-csv--read-property plist "FORMULA"))
                    (org-clock-csv--escape (s-join org-clock-csv-headline-separator (plist-get plist ':parents)))
                    (org-clock-csv--escape (plist-get plist ':category))
                    (plist-get plist ':start)
