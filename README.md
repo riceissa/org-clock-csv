@@ -1,5 +1,14 @@
 # Export Clock Entries from org-mode to CSV
 
+(**Note from 2024-09-01:** This script is very slow on older versions of Emacs -- slow
+enough that it probably won't finish in a reasonable amount of time, possibly
+taking hours or days,
+probably because the bundled version of org-mode is so old that it's using very
+inefficient timestamp parsing algorithms.  Upgrading to Emacs version >= 29.4
+is guaranteed to work.  I'm not sure what the oldest version that still works is,
+as I didn't try bisecting Emacs versions.)
+
+
 `org-clock-csv` is an Emacs package that extracts clock entries from org files
 and convert them into CSV format. It is intended to facilitate clocked time
 analysis in external programs.
