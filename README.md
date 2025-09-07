@@ -6,7 +6,11 @@ taking hours or days,
 probably because the bundled version of org-mode is so old that it's using very
 inefficient timestamp parsing algorithms.  Upgrading to Emacs version >= 29.4
 is guaranteed to work.  I'm not sure what the oldest version that still works is,
-as I didn't try bisecting Emacs versions.)
+as I didn't try bisecting Emacs versions.
+
+Also, don't forget to install `s.el` before running this script. Otherwise,
+the script will complain and say something like "cannot open load file".
+To install `s.el`, just do `M-x package-install RET s RET`.)
 
 
 `org-clock-csv` is an Emacs package that extracts clock entries from org files
